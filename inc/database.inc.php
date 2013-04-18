@@ -1,0 +1,1 @@
+<?php	mysql_connect($conf["db"]["sqlhost"],$conf["db"]["sqluser"],$conf["db"]["sqlpassword"]) or die ("Keine Verbindung möglich"); mysql_select_db($conf["db"]["sqldb"]) or die ("Die Datenbank existiert nicht");	function query($query) {		return mysql_query($query);	}?>
