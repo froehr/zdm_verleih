@@ -1,7 +1,13 @@
+drop table ausleiher;
+drop table zubehoer;
+drop table ausleihobjekt;
+drop table ausleihe;
+drop table verleiher;
+
 create table ausleiher(
-	matrikel unique integer,
-	name varchar(50); 
-	vorname varchar(50);
+	matrikel integer unique,
+	name varchar(50), 
+	vorname varchar(50),
 	email varchar(50),
 	telefon varchar(20),
 	postleitzahl numeric(5,0),
@@ -19,19 +25,24 @@ create table verleiher(
 	
 create table ausleihe(
 	ausleihid serial,
-	matrikel unique integer,
-	verleiherid serial
+	matrikel integer unique,
+	verleiherid serial,
 	von date,
 	bis date,
+	ausleihe boolean,
 	objekte integer[],
 	primary key(ausleihid),
-	foreign key (matrikel) references ausleiher,
+	foreign key (matrikel) references ausleiher
+	on delete cascade
+	on update cascade,
 	foreign key (verleiherid) references verleiher
+	on delete cascade
+	on update cascade
 	);
 	
 create table ausleihobjekt(
 	objektid serial,
-	name unique varchar(50),
+	name varchar(50) unique,
 	zubehoer integer[],
 	primary key (objektid)
 	);
@@ -42,5 +53,7 @@ create table zubehoer(
 	name varchar(50),
 	primary key (zubehoerid),
 	foreign key (objektid) references ausleihobjekt
+	on delete cascade
+	on update cascade
 	);
 	
