@@ -1,0 +1,8 @@
+Lizenz
+
+Autoren:
+Anja Schlaphorst
+Fabian Röhr
+
+Jegliche Nutzung und Wiederverwendung des Quelltextes ist nur nach ausdrücklicher 
+Erlaubnis durch einen der beiden Autoren gestattet.
