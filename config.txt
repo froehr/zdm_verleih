@@ -1,0 +1,10 @@
+<?php
+	// database configuration
+	$conf["db"]["sqlhost"] = "192.168.1.8";
+	$conf["db"]["sqluser"] = "root";
+	$conf["db"]["sqlpassword"] = "";
+	$conf["db"]["sqldb"] = "zdm_verleih";
+	
+	// mail adress
+	$conf["mail"] = "zdm@uni-muenster.de";
+?>

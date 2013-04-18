@@ -9,15 +9,18 @@ function read_tpl($filename) {
 	}
 }
 
-function tpl_replace($tpl, $old, $new) {
+function tpl_replace($old, $new) {
+	GLOBAL $tpl;
 	return str_replace('{'.$old.'}', $new, $tpl);
 }
 			
-function tpl_replace_once($tpl, $old, $new) {
+function tpl_replace_once($old, $new) {
+	GLOBAL $tpl;
 	return preg_replace('/\{'.$old.'\}/', $new, $tpl, 1);
 }
 
-function copy_code($tpl, $tag) {
+function copy_code($tag) {
+	GLOBAL $tpl;
 	preg_match('@\{\+'.$tag.'\}(.*)\{\-'.$tag.'\}@s', $tpl, $subpattern);
 	if ( isset($subpattern[1]) && isset($subpattern[0]) ) {
 		return preg_replace('@\{\+'.$tag.'\}(.*)\{\-'.$tag.'\}@s', $subpattern[1].$subpattern[0], $tpl);
@@ -27,7 +30,8 @@ function copy_code($tpl, $tag) {
 	}
 }
 
-function clean_code($tpl, $tag) {
+function clean_code($tag) {
+	GLOBAL $tpl;
 	return preg_replace('@\{\+'.$tag.'\}(.*)\{\-'.$tag.'\}@s', '', $tpl);
 }
 ?>
