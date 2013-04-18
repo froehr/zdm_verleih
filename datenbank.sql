@@ -25,7 +25,7 @@ create table verleiher(
 	
 create table ausleihe(
 	ausleihid serial,
-	matrikel integer unique,
+	matrikel integer,
 	verleiherid serial,
 	von date,
 	bis date,
