@@ -112,7 +112,7 @@ ALTER TABLE `ausleihe`
 -- Constraints der Tabelle `zubehoer`
 --
 ALTER TABLE `zubehoer`
-  ADD CONSTRAINT `zubehoer_ibfk_1` FOREIGN KEY (`objekt_id`) REFERENCES `ausleihobjekt` (`objekt_id`) ON DELETE SET NULL ON UPDATE CASCADE;
+  ADD CONSTRAINT `zubehoer_ibfk_1` FOREIGN KEY (`objekt_id`) REFERENCES `ausleihobjekt` (`objekt_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

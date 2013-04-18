@@ -19,6 +19,16 @@
 	// replace content placeholder with content template file
 	$tpl = tpl_replace('content', read_tpl($content_tpl));
 	
+	// handle different pages
+	switch($page) {
+		case"neues_geraet":
+			include("inc/neues_geraet.inc.php");
+		break;
+	}
+	
+	// remove special characters
+	$tpl = str_replace(array("Ä","Ö","Ü","ä","ö","ü","ß"), array("&Auml;","&Ouml;","&Uuml;","&auml;","&ouml;","&uuml;","&szlig;"), $tpl);
+	
 	// print template (whole contents)
 	print $tpl;
 ?>
