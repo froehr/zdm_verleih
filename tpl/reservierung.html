@@ -1,0 +1,60 @@
+{errormessage}
+<table>
+	<form>
+	 <tr>
+		 <td>
+			 Matrikel:
+		 </td>
+		 <td>
+			 <input name="matrikel" type="text" size="30" maxlength="40" required><input type="submit" name="senden" value="Prüfen">
+		 </td>
+	 </tr>
+	</form>
+	
+	<form>
+		<tr>
+			<td>	
+				<input name="matrikel" type="hidden" size="30" maxlength="40" required value="{matrikelform2}">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Vorname:
+			</td>
+			<td>
+				<input name="vorname" type="text" size="30" maxlength="30" required value="{vorname}">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Nachname:
+			</td>
+			<td>
+				<input name="zuname" type="text" size="30" maxlength="40" required value="{nachmname}">
+			</td>
+		</tr>
+		<tr>	
+			<td>
+				Anfangsdatum:
+			</td>
+			<td>
+				<input type="date" name="anfang" required value="{anfangsdatum}">
+			</td>
+		</tr>
+		<tr>	
+			<td>
+				Enddatum:
+			</td>
+			<td>
+				<input type="date" name="ende" required value="{enddatum}">
+			</td>
+		</tr>
+		<tr>	
+			<td>
+				<input type="submit" name="senden" value="abschicken">
+			</td>
+		</tr>
+	</form>
+</table>
+{successmassage}
+	

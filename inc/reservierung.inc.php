@@ -11,11 +11,6 @@ if isset($_POST["matrikel"]){
 	$tpl = tpl_replace("matrikelform2", "");
 	$tpl = tpl_replace("vorname", "");
 	$tpl = tpl_replace("nachname", "");
-	$tpl = tpl_replace("email", "");
-	$tpl = tpl_replace("telefon", "");
-	$tpl = tpl_replace("strasse", "");
-	$tpl = tpl_replace("hausnummer", "");
-	$tpl = tpl_replace("plz", "");
 	$tpl = tpl_replace("anfangsdatum", "");
 	$tpl = tpl_replace("enddatum", "");
 	}
@@ -24,11 +19,6 @@ if isset($_POST["matrikel"]){
 	$tpl = tpl_replace("matrikelform2", $row->matrikel);
 	$tpl = tpl_replace("vorname", $row->vorname);
 	$tpl = tpl_replace("nachname", $row->nachname);
-	$tpl = tpl_replace("email", $row->email);
-	$tpl = tpl_replace("telefon", $row->telefon);
-	$tpl = tpl_replace("strasse", $row->strasse);
-	$tpl = tpl_replace("hausnummer", $row->hausnummer);
-	$tpl = tpl_replace("plz", $row->plz);
 	$tpl = tpl_replace("anfangsdatum", $row->anfangsdatum);
 	$tpl = tpl_replace("enddatum", $row->enddatum);
 }
