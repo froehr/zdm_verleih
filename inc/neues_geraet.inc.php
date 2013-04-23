@@ -1,15 +1,16 @@
 <?php
 	$errormessage = "";
 	$successmessage = "";
-	if ( isset($_POST["geraet_name"]) && isset($_POST["geraet_zubehoer"]) ) {
+	if ( isset($_POST["geraet_name"]) && isset($_POST["geraet_nummer"]) && isset($_POST["geraet_zubehoer"]) ) {
 		$name = htmlentities(mysql_real_escape_string($_POST["geraet_name"]));
-		if ( mysql_num_rows(query("SELECT `name` FROM `ausleihobjekt` WHERE `name`='".$name."'")) != 0 ) {
+		$nummer = intval($_POST["geraet_nummer"]);
+		if ( mysql_num_rows(query("SELECT `name` FROM `ausleihobjekt` WHERE `geraet_typ`='".$name."' AND `geraet_typ_id`=".$nummer)) != 0 ) {
 			$errormessage = "Der Name ist schon vergeben";
 		}
 		else {
 			$zubehoer_form = htmlentities(mysql_real_escape_string($_POST["geraet_zubehoer"]));
 			$zubehoer_array = explode("\\r\\n", $zubehoer_form);
-			query("INSERT INTO `ausleihobjekt`(`name`) VALUES ('".$name."')");
+			query("INSERT INTO `ausleihobjekt`(`geraet_typ`,`geraet_typ_id`) VALUES ('".$name."',".$nummer.")");
 			$successmessage = "Objekt Erfolgreich eingetragen";
 			$objekt_id = mysql_insert_id();
 			$zubehoer_objekt = "";
