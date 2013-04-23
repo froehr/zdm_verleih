@@ -10,7 +10,7 @@ $strasse="";
 $hausnummer="";
 $plz="";
 $matrikelform2="";
-
+$matrikel2="";
 
 if (isset($_POST["matrikel"])){
 	$matrikel = htmlentities(mysql_real_escape_string($_POST["matrikel"]));

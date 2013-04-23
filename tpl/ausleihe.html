@@ -2,11 +2,6 @@
 <table>
 	<form action="#" method="post">
 	 <tr>
-	 	<td colspan = "2">
-	 		
-	 	</td>
-	 </tr>
-	 <tr>
 		 <td>
 			 Matrikel:
 		 </td>
@@ -17,10 +12,23 @@
 	</form>
 	<tr>
 		<td colspan = "2">
-			<h3>Ausleiher einfügen:</h3>
+			<h3>Ausleihe einfügen:</h3>
 		</td>
 	</tr>
 	<form action="#" method="post">
+	<tr>
+		<td>
+			Verleiher:
+		</td>
+	 	<td>
+	 		<select name="dropdown">
+	 			{+verleiher}
+	 			<option>
+	 				{verleiher_name}
+	 			</option>
+	 			{-verleiher}
+	 	</td>
+	 </tr>
 		<tr>
 			<td>
 				Matrikel:
