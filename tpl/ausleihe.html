@@ -1,20 +1,32 @@
-{errormessage}
+<h3>Ausleiher bereits vorhanden?</h3>
 <table>
-	<form>
+	<form action="#" method="post">
+	 <tr>
+	 	<td colspan = "2">
+	 		
+	 	</td>
+	 </tr>
 	 <tr>
 		 <td>
 			 Matrikel:
 		 </td>
 		 <td>
-			 <input name="matrikel" type="text" size="30" maxlength="40" required><input type="submit" name="senden" value="Prüfen">
+			 <input name="matrikel" type="text" size="30" maxlength="40" required><input type="submit" name="senden" value="Prüfen">{errormessage}
 		 </td>
 	 </tr>
 	</form>
-	
-	<form>
+	<tr>
+		<td colspan = "2">
+			<h3>Ausleiher einfügen:</h3>
+		</td>
+	</tr>
+	<form action="#" method="post">
 		<tr>
+			<td>
+				Matrikel:
+			</td>
 			<td>	
-				<input name="matrikel" type="hidden" size="30" maxlength="40" required value="{matrikelform2}">
+				<input name="matrikel2" size="30" maxlength="40" required value="{matrikelform3}">
 			</td>
 		</tr>
 		<tr>
@@ -30,7 +42,7 @@
 				Nachname:
 			</td>
 			<td>
-				<input name="zuname" type="text" size="30" maxlength="40" required value="{nachmname}">
+				<input name="nachname" type="text" size="30" maxlength="40" required value="{nachname}">
 			</td>
 		</tr>
 		<tr>	
@@ -51,7 +63,7 @@
 		</tr>
 		<tr>	
 			<td>
-				Straße:
+				Stra&szlig;e:
 			</td>
 			<td>
 				<input name="strasse" type="text" size="30" maxlength="40" required value="{strasse}">

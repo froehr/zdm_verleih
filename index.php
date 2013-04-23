@@ -27,6 +27,9 @@
 		case"geraete_uebersicht":
 			include("inc/geraete_uebersicht.inc.php");
 		break;
+		case"ausleihe":
+			include("inc/ausleihe.inc.php");
+		break;
 	}
 	
 	// remove special characters
