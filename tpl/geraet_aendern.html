@@ -1,0 +1,30 @@
+<h1>Gerät ändern</h1>
+{errormessage}
+<form method="POST" action="#">
+	<table width="400" cellpadding="0" cellspacing="5">
+		<tr>
+			<td width="50%">
+				<b>Name und Nummer</b>
+			</td>
+			<td width="50%">
+				<input type="text" name="geraet_name" value="{name}">
+				<input type="number" name="geraet_nummer" value="{nummer}" maxlength="2">
+			</td>
+		</tr>
+		<tr>
+			<td width="50%">
+				<b>Zubehör</b>
+			</td>
+			<td width="50%">
+				{zubehoer}<br>
+				<textarea name="geraet_zubehoer"></textarea>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<input type="submit" value="Ändern"> <input type="reset" value="leer">
+			</td>
+		</tr>
+	</table>
+</form>
+{successmessage}
