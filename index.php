@@ -24,6 +24,9 @@
 		case"neues_geraet":
 			include("inc/neues_geraet.inc.php");
 		break;
+		case"geraete_uebersicht":
+			include("inc/geraete_uebersicht.inc.php");
+		break;
 	}
 	
 	// remove special characters

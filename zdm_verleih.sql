@@ -65,10 +65,11 @@ CREATE TABLE IF NOT EXISTS `ausleiher` (
 
 CREATE TABLE IF NOT EXISTS `ausleihobjekt` (
   `objekt_id` int(4) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) DEFAULT NULL,
+  `geraet_typ` varchar(50) DEFAULT NULL,
+  `geraet_typ_id` tinyint(2) DEFAULT NULL,
   `zubehoer` text,
   PRIMARY KEY (`objekt_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
