@@ -1,40 +1,46 @@
-<h3>Ausleiher bereits vorhanden?</h3>
-<table>
+<div {formular1_2}>
+<table width="400px">
+	
+	<tr>
+		<th colspan = "2" align="left">
+			Ist der Ausleiher bereits vorhanden?
+		</th>
+	</tr>
 	<form action="#" method="post">
 	 <tr>
 		 <td>
 			 Matrikel:
 		 </td>
 		 <td>
-			 <input name="matrikel" type="text" size="30" maxlength="40" required><input type="submit" name="senden" value="Prüfen">{errormessage}
+			 <input name="matrikel" type="text" size="30" maxlength="40" required>
 		 </td>
 	 </tr>
+	 <tr>
+		<td colspan="2">
+			<input type="submit" name="senden" value="Pr&uuml;fen" style="width: 68%">
+		</td>
+	<tr>
+	 <tr>
+		<td>
+		</td>
+		<td>
+			<font color="#FF0000">{matrikel_nicht}</font>
+			<font color="#00C000">{matrikel_da}</font>
+		</td>
+	<tr>
 	</form>
 	<tr>
-		<td colspan = "2">
-			<h3>Ausleihe einfügen:</h3>
-		</td>
+		<th colspan = "2" align="left">
+			Ausleiher bestimmen:
+		</th>
 	</tr>
 	<form action="#" method="post">
-	<tr>
-		<td>
-			Verleiher:
-		</td>
-	 	<td>
-	 		<select name="dropdown">
-	 			{+verleiher}
-	 			<option>
-	 				{verleiher_name}
-	 			</option>
-	 			{-verleiher}
-	 	</td>
-	 </tr>
 		<tr>
 			<td>
 				Matrikel:
 			</td>
 			<td>	
-				<input name="matrikel2" size="30" maxlength="40" required value="{matrikelform3}">
+				<input name="matrikel2" size="30" maxlength="40" required value="{matrikelform2}">
 			</td>
 		</tr>
 		<tr>
@@ -50,7 +56,7 @@
 				Nachname:
 			</td>
 			<td>
-				<input name="nachname" type="text" size="30" maxlength="40" required value="{nachname}">
+				<input name="nachname" type="text" size="30" maxlength="40" required value="{nachname}" id="datum">
 			</td>
 		</tr>
 		<tr>	
@@ -74,8 +80,7 @@
 				Stra&szlig;e:
 			</td>
 			<td>
-				<input name="strasse" type="text" size="30" maxlength="40" required value="{strasse}">
-				<input name="nummer" type="number" size="5" maxlength="5" required value="{hausnummer}">
+				<input name="strasse" type="text" required value="{strasse}" style="width: 50%"> <input name="nummer" type="text" required value="{hausnummer}" style="width: 13%">
 			</td>
 		</tr>
 		<tr>	
@@ -83,10 +88,57 @@
 				PLZ:
 			</td>
 			<td>
-				<input type="number" name="plz" size="30" maxlength="40" required value="{plz}">
+				<input type="text" name="plz" size="30" maxlength="40" required value="{plz}">
 			</td>
 		</tr>
 		<tr>	
+			<td colspan="2">
+				<input type="submit" name="senden" value="Ausleiher best&auml;tigen" style="width: 68%">
+			</td>
+		</tr>
+		<tr>
+			<td>
+			</td>
+			<td>
+			
+				<font color="#00C000">{bestaetigung}</font>
+			</td>
+		</tr>
+
+	</form  action="#" method="post">
+</table>
+</div>
+
+<div>
+<table>
+	<form>
+	<tr>
+		<th colspan = "2" align="left">
+			Restliche Daten angeben:</br>
+		</th>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<b>Ausleihe an:</b> {vorname} {nachname}, {matrikelform3}
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Verleiher:
+		</td>
+	 	<td>
+	 		<select name="verleiher_drop">
+	 			<option>
+	 				Bitte w&auml;hlen
+	 			</option>
+	 			{+verleiher}
+	 			<option>
+	 				{verleiher_name}
+	 			</option>
+	 			{-verleiher}
+	 	</td>
+	 </tr>
+			<tr>	
 			<td>
 				Anfangsdatum:
 			</td>
@@ -103,11 +155,28 @@
 			</td>
 		</tr>
 		<tr>	
-			<td>
-				<input type="submit" name="senden" value="abschicken">
+			<td colspan="2">
+				<input type="submit" name="senden" value="Datum best&auml;tigen" style="width: 100%">
 			</td>
 		</tr>
-	</form>
+		</form>
+		<form  action="#" method="post">
+		<tr>
+		<td>
+			Objekt 1:
+		</td>
+	 	<td>
+	 		<select name="objekt1_drop">
+	 			<option>
+	 				Bitte w&auml;hlen
+	 			</option>
+	 			{+objekt}
+	 			<option>
+	 				objekt_name}
+	 			</option>
+	 			{-objekt}
+	 	</td>
+	 </tr>	 
 </table>
-{successmassage}
+</div>
 	

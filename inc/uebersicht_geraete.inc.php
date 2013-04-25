@@ -1,4 +1,4 @@
-<?php
+  <?php
 	$query = query("SELECT * FROM `ausleihobjekt` ORDER BY `geraet_typ`, `geraet_typ_id`");
 	if (mysql_num_rows($query) != 0) {
 		while ($row = mysql_fetch_object($query)) {
