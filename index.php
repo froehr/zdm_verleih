@@ -33,6 +33,9 @@
 		case"verleiher_loeschen":
 			include("inc/verleiher_loeschen.inc.php");
 		break;
+		case"verleiher_anlegen":
+			include("inc/verleiher_anlegen.inc.php");
+		break;
 	}
 	
 	// remove special characters
