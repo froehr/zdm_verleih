@@ -22,11 +22,7 @@ $matrikel2="";
 $matrikelform3="";
 
 
-if (isset($_POST["matrikel"])){
-	$matrikel = htmlentities(mysql_real_escape_string($_POST["matrikel"]));
-	$result = query("select * from ausleiher where matrikel =".$matrikel);
-	
-	//Dropdown für den Verleiher füllen
+//Dropdown für den Verleiher füllen
 	$query = query("SELECT vorname FROM `verleiher` ORDER BY `vorname`");
 	if (mysql_num_rows($query) != 0) {
 		while ($row = mysql_fetch_object($query)) {
@@ -39,15 +35,22 @@ if (isset($_POST["matrikel"])){
 		}
 	}
 	$tpl = clean_code("verleiher");
-	
+
+
+if (isset($_POST["matrikel"])){
+	$matrikel = htmlentities(mysql_real_escape_string($_POST["matrikel"]));
+	$result = query("select * from ausleiher where matrikel =".$matrikel);
 	
 	//Prüfen ob Matrikel schon vorhanden ist oder ob ein neuer Datensatz angelegt werden muss
 	if (mysql_num_rows($result) == 0){
-		$matrikel_nicht ="Matrikel noch nicht in der Datenbank! </br> Bitte Daten unten angeben:";
+		$matrikel_nicht ='<script>
+							matrikel_error();
+						  </script>';
 		$matrikelform=$matrikel;
 		
 		
 		$tpl =tpl_replace("matrikelform2", $matrikel);
+	
 	}
 	
 	else{
@@ -61,8 +64,9 @@ if (isset($_POST["matrikel"])){
 	$plz=$row->postleitzahl;
 	$tpl =tpl_replace("matrikelform2", $matrikel);
 	
-	$matrikel_da ="Matrikel bereits bekannt! </br>Daten pr&uuml;fen und &uuml;bernehmen!";
-	
+	$matrikel_da ='<script>
+			  			matrikel_success();
+				   </script>';
 	$hidden="hidden";
 	}
 }
@@ -80,7 +84,7 @@ else if (isset($_POST["matrikel2"])){
 	
 	query(
 	"insert into ausleiher(`matrikel`, `name`, `vorname`, `email`, `telefon`, `postleitzahl`, `strasse`, `hausnummer`)
-	values('".$matrikel2."', '".$vorname."', '".$nachname."', '".$email."', '".$telefon."', '".$plz."', '".$strasse."', '".$hausnummer."')");
+	values('".$matrikel2."', '".$nachname."', '".$vorname."', '".$email."', '".$telefon."', '".$plz."', '".$strasse."', '".$hausnummer."')");
 	
 	//Dropdown für den Verleiher füllen
 	$query = query("SELECT vorname FROM `verleiher` ORDER BY `vorname`");
@@ -114,6 +118,8 @@ $tpl = tpl_replace("hausnummer", $hausnummer);
 $tpl = tpl_replace("matrikelform2", $matrikel2);
 $tpl = tpl_replace("plz", $plz);
 $tpl =tpl_replace("bestaetigung", $bestaetigung);
+
+$tpl =tpl_replace("anfangsdatum", date("d.m.Y"));
 
 //Im dritten Formular
 $tpl = tpl_replace("matrikelform3", $matrikel2);

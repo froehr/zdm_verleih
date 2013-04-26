@@ -36,6 +36,9 @@
 		case"verleiher_anlegen":
 			include("inc/verleiher_anlegen.inc.php");
 		break;
+		case"ausleihe_mitarbeiter":
+			include("inc/ausleihe_mitarbeiter.inc.php");
+		break;
 	}
 	
 	// remove special characters

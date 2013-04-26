@@ -1,0 +1,66 @@
+<h3>Ausleihe für Mitarbeiter des Instituts oder Professoren eintragen:</h3>
+<table>
+	<form action="#" method="post">
+		<tr>
+			<td>
+				Verleiher:
+			</td>
+	 		<td>
+	 			<select name="verleiher_drop">
+	 				<option>
+	 					Bitte w&auml;hlen
+	 				</option>
+	 			{+verleiher}
+	 				<option>
+	 					{verleiher_name}
+	 				</option>
+	 			{-verleiher}
+	 		</td>
+	 	</tr>
+		<tr>
+			<td>
+				Vorname:
+			</td>
+			<td>
+				<input name="vorname" type="text" size="30" maxlength="40" required>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Nachname:
+			</td>
+			<td>
+				<input name="nachname" type="text" size="30" maxlength="40" required>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Email:
+			</td>
+			<td>
+				<input name="email" type="email" size="30" maxlength="40" required>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Anfangsdatum:
+			</td>
+			<td>
+				<input name="anfangsdatum" type="text" size="30" maxlength="40" id="anfangsdatum" required value="{anfangsdatum}">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Enddatum:
+			</td>
+			<td>
+				<input name="enddatum" type="text" size="30" maxlength="40" id="enddatum" required>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<input type="submit" name="senden" value="Datum best&auml;tigen" style="width: 100%">
+			</td>
+		</tr>
+	</form>
+</table>

@@ -7,6 +7,7 @@
 		</th>
 	</tr>
 	<form action="#" method="post">
+	
 	 <tr>
 		 <td>
 			 Matrikel:
@@ -17,15 +18,15 @@
 	 </tr>
 	 <tr>
 		<td colspan="2">
-			<input type="submit" name="senden" value="Pr&uuml;fen" style="width: 68%">
+			<input type="submit" name="senden" value="Pr&uuml;fen" style="width: 68%" id="alert">
 		</td>
 	<tr>
 	 <tr>
 		<td>
 		</td>
 		<td>
-			<font color="#FF0000">{matrikel_nicht}</font>
-			<font color="#00C000">{matrikel_da}</font>
+			{matrikel_nicht}
+			{matrikel_da}
 		</td>
 	<tr>
 	</form>
@@ -143,7 +144,7 @@
 				Anfangsdatum:
 			</td>
 			<td>
-				<input type="date" name="anfang" required value="{anfangsdatum}">
+				<input type="text" name="anfang" id="anfangsdatum" required value="{anfangsdatum}">
 			</td>
 		</tr>
 		<tr>	
@@ -151,7 +152,7 @@
 				Enddatum:
 			</td>
 			<td>
-				<input type="date" name="ende" required value="{enddatum}">
+				<input type="text" name="ende" id="enddatum" required">
 			</td>
 		</tr>
 		<tr>	
@@ -172,11 +173,10 @@
 	 			</option>
 	 			{+objekt}
 	 			<option>
-	 				objekt_name}
+	 				{objekt_name}
 	 			</option>
 	 			{-objekt}
 	 	</td>
 	 </tr>	 
 </table>
 </div>
-	

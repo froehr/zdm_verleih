@@ -1,19 +1,20 @@
-<form action="/select_demo.php">
-  <label for="ctlJob">Job Function:</label>
-  <select name="id" id="ctlJob" multiple>
-    <option value="1">Managers</option>
-    <option value="2">Team Leaders</option>
-    <option value="3">Developers</option>
-  </select>
-  <noscript>
-    <input type="submit" name="action" value="Load Individuals" />
-  </noscript>
-  <label for="ctlPerson">Individual:</label>
-  <select name="person_id" id="ctlPerson" multiple>
-    <option value="1">Mark P</option>
-    <option value="2">Andy Y</option>
-    <option value="3">Richard B</option>
-  </select>
-<input type="submit" name="action" value="Book" />
+<html><head><title>onsubmit-Test</title></head><body>
+<form name="demo" action="#"
+  onsubmit="return validate();">
+Eingabe: 
+<input type="text" name="feld" value="" />
+<input type="reset" name="reset" value="Löschen" />
+<input type="submit" name="submit" value="Ansenden" />
 </form>
-
+<script type="text/javascript">
+  function validate() {
+    if (document.demo.feld.value !="") {
+      return true;
+    }
+    
+    alert('Wert darf nicht leer sein!');
+    
+    return false;
+  }
+</script>
+</body></html>

@@ -5,13 +5,24 @@
 		<link href="style.css" rel="stylesheet" type="text/css">
 		
 		
-  			<link rel="Stylesheet" href="static/css/ui-lightness/jquery-ui-1.10.2.custom.css"/>
-   			<script src="static/js/jquery-1.9.1.js"></script>
-   			<script src="static/js/jquery-ui-1.10.2.custom.min.js"></script>
-  		
+		<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
+		<script src="static/js/jquery-1.9.1.js"></script>
+		<script src="static/js/jquery-ui-1.10.2.custom.min.js"></script>
+		<script src="static/alertify.js-0.3/lib/alertify.min.js"></script>
+		<script src="javascript/alertify/alertify.js"></script>
+		<link rel="stylesheet" href="static/alertify.js-0.3/themes/alertify.core.css" />
+		<link rel="stylesheet" href="static/alertify.js-0.3/themes/alertify.default.css" />
+		
+		<script>
+			$(function () {
+			$('#anfangsdatum').datepicker({ dateFormat: 'dd.mm.yy' });
+			$('#enddatum').datepicker({ dateFormat: 'dd.mm.yy' });
+		})
+		</script>
+			  		
 	</head>
 	
-	<body>
+	<body>		
 		<div id="header">
 			<nav>
 				<ul>
@@ -39,7 +50,8 @@
 						<ul style="list-style-type:circle;">
 							<li>Neues Ger&auml;t eintragen (Anja - done)</li>
 							<li>Ger&auml;t &auml;ndern</li>
-							<li>Neuen Verleiher anlegen</li>
+							<li>Neuen Verleiher anlegen (Fabian - done)</li>
+							<li>Neuen Verleiher lšschen (Fabian - done)</li>
 						</ul>
 					</li>
 				</ul>
