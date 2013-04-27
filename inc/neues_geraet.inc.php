@@ -4,14 +4,20 @@
 	if ( isset($_POST["geraet_name"]) && isset($_POST["geraet_nummer"]) && isset($_POST["geraet_zubehoer"]) ) {
 		$name = htmlentities(mysql_real_escape_string($_POST["geraet_name"]));
 		$nummer = intval($_POST["geraet_nummer"]);
-		if ( mysql_num_rows(query("SELECT `name` FROM `ausleihobjekt` WHERE `geraet_typ`='".$name."' AND `geraet_typ_id`=".$nummer)) != 0 ) {
-			$errormessage = "Der Name ist schon vergeben";
+		$result = query("SELECT `geraet_typ`, `geraet_typ_id` FROM `ausleihobjekt` WHERE `geraet_typ`='".$name."' AND `geraet_typ_id`=".$nummer);
+		if (mysql_num_rows($result) != 0 ) {
+		$errormessage = '<script>
+							alertify.error("Der Name '.$name.' '.$nummer.' ist bereits vergeben!");
+						</script>';
 		}
+		
 		else {
 			$zubehoer_form = htmlentities(mysql_real_escape_string($_POST["geraet_zubehoer"]));
 			$zubehoer_array = explode("\\r\\n", $zubehoer_form);
 			query("INSERT INTO `ausleihobjekt`(`geraet_typ`,`geraet_typ_id`) VALUES ('".$name."',".$nummer.")");
-			$successmessage = "Objekt Erfolgreich eingetragen";
+			$successmessage = '<script>
+									alertify.success("Objekt '.$name.' '.$nummer.' erfolgreich eingetragen!");
+							   </script>';
 			$objekt_id = mysql_insert_id();
 			$zubehoer_objekt = "";
 			foreach ($zubehoer_array AS $zubehoer) {
@@ -21,11 +27,16 @@
 				}
 				else {
 					$zubehoer_objekt .= ",".mysql_insert_id();
+					
 				}
-				$successmessage .= "<br>Zubehörobjekt ".$zubehoer." eingetragen.";
+				$successmessage .= '<script>
+										alertify.log("Das Zubehšr '.$zubehoer.'</br> wurde erfolgreich eingetragen!");
+									</script>';
 			}
 			query("UPDATE `ausleihobjekt` SET `zubehoer`='".$zubehoer_objekt."' WHERE `objekt_id`=".$objekt_id);
-			$successmessage .= "<br>Eintrag erfolgreich abgeschlossen";
+			$successmessage .= '<script>
+									alertify.success("Eintrag erfolgreich abgeschlossen!");
+								</script>';
 		}
 	}
 	$tpl = tpl_replace("errormessage", $errormessage);
