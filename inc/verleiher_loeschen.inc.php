@@ -10,7 +10,7 @@ $achtung='<script>
 		  
 		  
 //Dropdown füllen
-	$query = query("SELECT vorname, name, verleiher_id FROM `verleiher` ORDER BY `vorname`");
+	$query = query("SELECT verleiher_vorname, verleiher_name, verleiher_id FROM `verleiher` ORDER BY `verleiher_vorname`");
 	if (mysql_num_rows($query) != 0) {
 		while ($row = mysql_fetch_object($query)) {
 			$tpl = copy_code("verleiher");
@@ -18,7 +18,7 @@ $achtung='<script>
 			if ($row->vorname != 0) {
 				$name .= $row->vorname;
 			}
-			$replace = $row->vorname." ".$row->name." ".$row->verleiher_id;
+			$replace = $row->verleiher_vorname." ".$row->verleiher_name." ".$row->verleiher_id;
 			$tpl = tpl_replace_once("verleiher_name", $replace);
 		}
 	}

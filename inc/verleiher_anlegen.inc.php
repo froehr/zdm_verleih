@@ -6,7 +6,7 @@ if ((isset($_POST["verleiher_vorname"]))){
 		$verleiher_vorname = htmlentities(mysql_real_escape_string($_POST["verleiher_vorname"]));
 		$verleiher_nachname = htmlentities(mysql_real_escape_string($_POST["verleiher_nachname"]));
 		query(
-			"insert into verleiher(`name`, `vorname`)
+			"insert into verleiher(`verleiher_name`, `verleiher_vorname`)
 			values('".$verleiher_nachname."', '".$verleiher_vorname."')");
 			
 		
