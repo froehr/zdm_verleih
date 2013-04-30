@@ -42,6 +42,11 @@
 		case"ueberzogen":
 			include("inc/ueberzogen.inc.php");
 		break;
+		case"historisch":
+			include("inc/historisch.inc.php");
+		break;
+		case"geraete_uebersicht":
+			include("inc/geraete_uebersicht.inc.php");
 	}
 	
 	// remove special characters
