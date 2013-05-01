@@ -5,6 +5,7 @@ $successmessage ="";
 $bestaetigung ="";
 $matrikel_nicht="";
 $matrikel_da="";
+$gefahr="";
 
 $hidden="text";
 
@@ -23,15 +24,15 @@ $matrikelform3="";
 
 
 //Dropdown für den Verleiher füllen
-	$query = query("SELECT vorname FROM `verleiher` ORDER BY `vorname`");
+	$query = query("SELECT verleiher_vorname FROM `verleiher` ORDER BY `verleiher_vorname`");
 	if (mysql_num_rows($query) != 0) {
 		while ($row = mysql_fetch_object($query)) {
 			$tpl = copy_code("verleiher");
- 			$name = $row->vorname;
+ 			$name = $row->verleiher_vorname;
 			if ($row->vorname != 0) {
-				$name .= " ".$row->vorname;
+				$name .= " ".$row->verleiher_vorname;
 			}
-			$tpl = tpl_replace_once("verleiher_name", $row->vorname);
+			$tpl = tpl_replace_once("verleiher_name", $row->verleiher_vorname);
 		}
 	}
 	$tpl = clean_code("verleiher");
@@ -47,10 +48,7 @@ if (isset($_POST["matrikel"])){
 							matrikel_error();
 						  </script>';
 		$matrikelform=$matrikel;
-		
-		
 		$tpl =tpl_replace("matrikelform2", $matrikel);
-	
 	}
 	
 	else{
@@ -68,6 +66,14 @@ if (isset($_POST["matrikel"])){
 			  			matrikel_success();
 				   </script>';
 	$hidden="hidden";
+	
+	//Zeigt Meldung an falls schon mehrfach Verspätungen aufgetreten sind
+	if ($row->verspaetungen >= 2){
+		$gefahr = '<script>
+						alertify.error("Achtung diese Person hat schon '.$row->verspaetungen.' Mal das Datum &uuml;berschritten!");
+				   </script>';
+				
+		}
 	}
 }
 
@@ -87,15 +93,15 @@ else if (isset($_POST["matrikel2"])){
 	values('".$matrikel2."', '".$nachname."', '".$vorname."', '".$email."', '".$telefon."', '".$plz."', '".$strasse."', '".$hausnummer."')");
 	
 	//Dropdown für den Verleiher füllen
-	$query = query("SELECT vorname FROM `verleiher` ORDER BY `vorname`");
+	$query = query("SELECT verleiher_vorname FROM `verleiher` ORDER BY `verleiher_vorname`");
 	if (mysql_num_rows($query) != 0) {
 		while ($row = mysql_fetch_object($query)) {
 			$tpl = copy_code("verleiher");
  			$name = $row->vorname;
 			if ($row->vorname != 0) {
-				$name .= " ".$row->vorname;
+				$name .= " ".$row->verleiher_vorname;
 			}
-			$tpl = tpl_replace_once("verleiher_name", $row->vorname);
+			$tpl = tpl_replace_once("verleiher_name", $row->verleiher_vorname);
 		}
 	}
 	$tpl = clean_code("verleiher");
@@ -105,6 +111,7 @@ else if (isset($_POST["matrikel2"])){
 //Im ersten Formular
 $tpl =tpl_replace("matrikel_nicht", $matrikel_nicht);
 $tpl =tpl_replace("matrikel_da", $matrikel_da);
+$tpl =tpl_replace("gefahr", $gefahr);
 $tpl =tpl_replace("hidden", $hidden);
 
 
