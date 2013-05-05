@@ -3,10 +3,13 @@
 //Datum von heute abfragen
 $today = date("d.m.Y", time());
 
+//Datum für SQL-Abfrage
+$heute = date("Y-m-d", time());
+
 //MySQL abfrgaen aufgeteilt nach Überzogen, etc.
-$ueberzogen = query("SELECT DISTINCT * FROM `ausleihe` JOIN `ausleiher` INNER JOIN `verleiher` ON (ausleihe.verleiher_id = verleiher.verleiher_id) WHERE `bis` < '".$today."'");
-$faellig = query("SELECT DISTINCT * FROM `ausleihe` JOIN `ausleiher` INNER JOIN `verleiher` ON (ausleihe.verleiher_id = verleiher.verleiher_id) WHERE `bis` = '".$today."'");
-$nochzeit = query("SELECT DISTINCT * FROM `ausleihe` JOIN `ausleiher` INNER JOIN `verleiher` ON (ausleihe.verleiher_id = verleiher.verleiher_id) WHERE `bis` > '".$today."'");
+$ueberzogen = query("SELECT DISTINCT * FROM `ausleihe` INNER JOIN `ausleiher` ON (ausleihe.matrikel = ausleiher.matrikel) INNER JOIN `verleiher` ON (ausleihe.verleiher_id = verleiher.verleiher_id) WHERE `bis` < '".$heute."' AND `abgeschlossen` = '0000-00-00'");
+$faellig = query("SELECT DISTINCT * FROM `ausleihe` INNER JOIN `ausleiher` ON (ausleihe.matrikel = ausleiher.matrikel) INNER JOIN `verleiher` ON (ausleihe.verleiher_id = verleiher.verleiher_id) WHERE `bis` = '".$heute."'");
+$nochzeit = query("SELECT DISTINCT * FROM `ausleihe` INNER JOIN `ausleiher` ON (ausleihe.matrikel = ausleiher.matrikel) INNER JOIN `verleiher` ON (ausleihe.verleiher_id = verleiher.verleiher_id) WHERE `bis` > '".$heute."'");
 
 //Tabelle mit Daten für Überzogen füllen
 if (mysql_num_rows($ueberzogen) != 0) {
@@ -17,8 +20,14 @@ if (mysql_num_rows($ueberzogen) != 0) {
 			$array = explode("-",$row->bis);
 			$bis = $array[2].".".$array[1].".".$array[0];
 			
-			//Mahngebühr berechnen
-			$gebuehr = $today - $bis;
+			//2 Date objekte erzeugen
+			$datetime1 = new DateTime($row->bis);
+			$datetime2 = new DateTime(date("Y-m-d", time()));
+			
+			//Intervall berechnen und in INt umformen
+			$interval = date_diff($datetime1, $datetime2);
+			$gebuehr = $interval->format('%R%a days');
+			
 			if($gebuehr <= 5){
 				$gebuehr = $gebuehr * 1;
 			}
@@ -29,17 +38,71 @@ if (mysql_num_rows($ueberzogen) != 0) {
 			$tpl = tpl_replace_once("ausgeliehenvon1", $row->vorname." ".$row->name);
 			
 			//Direkter Email-Versand mit Standardtext
-			$tpl = tpl_replace_once("emailadresse1", '<a href="mailto:'.$row->email.'?cc=zdm@uni-muenster.de&bcc=&subject=&Uuml;berzogene Ausleihe&body=Hallo '.$row->vorname.',%0D%0D
-				die Ausleihfrist f&uuml;r dein Transkriptionspedal ist am '.$bis.' abgelaufen. Bring das Pedal doch 
-				bitte m&ouml;glichst schnell vorbei.%0D%0D 1 - 5 Tage Versp&auml;tung pro Tag jeweils 1 &euro;%0D 6 - 10 Tage 
-				Versp&auml;tung pro Tag jeweils 2 &euro;%0Dzu zahlen dann mit Mensakarte.  %0D%0DGru&szlig;, %0D ZDM 
-				Geowissenschaften">'.$row->email.'</a>');
+			$tpl = tpl_replace_once("emailadresse1", $row->email);
 			$tpl = tpl_replace_once("mahngebuehr1", $gebuehr."&euro;");
 			$tpl = tpl_replace_once("matrikelnummer1", $row->matrikel);
 			$tpl = tpl_replace_once("ausgeliehenbis1", $bis);
 			$tpl = tpl_replace_once("anzahlverlaengerung1", $row->verlaengert);
-			$tpl = tpl_replace_once("bisherigeverspätungen1", $row->verspaetungen);
-			$tpl = tpl_replace_once("verliehenvon1", $row->verleiher_name);
+			$tpl = tpl_replace_once("bisherigeverspaetungen1", $row->verspaetungen);
+			$tpl = tpl_replace_once("verliehenvon1", $row->verleiher_vorname." ".$row->verleiher_name);
+			$tpl = tpl_replace_once("aktionen1",   '<img src="img/rueckgabe.png" alt="rueckgabe" onClick=
+			
+			\'alertify.confirm("Soll die Ausleihe wirklich beendet werden?",function (e){
+						if(e){
+							var http = new XMLHttpRequest();
+							http.open("POST", "inc/ueberzogen_helper.inc.php", false);
+							http.setRequestHeader(
+      							"Content-Type",
+    							"application/x-www-form-urlencoded");
+							http.send("ausleih_id='.$row->ausleih_id.'&rueckgabe=1");
+							var help;
+							help = http.responseText;
+    						if(help == 1){
+    							alertify.success("Die Ausleihe wurde erfolgreich aus der Datenbank gel&ouml;scht!");
+    						}
+    						else{
+    							alertify.error("Die Ausleihe wurde bereits aus der Datenbank gel&ouml;scht!");
+    						}
+   						} 
+   						else {
+   						 	alertify.error("R&uuml;ckgabe wurde vom Benutzer abgebrochen!");
+   					 	}
+					});\'>
+													
+					<a href="mailto:'.$row->email.'?cc=zdm@uni-muenster.de&bcc=&subject=&Uuml;berzogene Ausleihe&body=Hallo '.$row->vorname.',%0D%0D
+						die Ausleihfrist f&uuml;r dein Transkriptionspedal ist am '.$bis.' abgelaufen. Bring das Pedal doch 
+						bitte m&ouml;glichst schnell vorbei.%0D%0D 1 - 5 Tage Versp&auml;tung pro Tag jeweils 1 &euro;%0D 6 - 10 Tage 
+						Versp&auml;tung pro Tag jeweils 2 &euro;%0Dzu zahlen dann mit Mensakarte.  %0D%0DGru&szlig;, %0D ZDM 
+						Geowissenschaften"><img src="img/mahnung.png" alt="mahnung"></a>
+						
+					<img src="img/verlaengerung.png" alt="verlaengerung" onClick=
+			
+			\'alertify.prompt("Bis wann soll die Ausleihe verl&auml;ngert werden?", function (e, str) {
+						if(e){
+							var http = new XMLHttpRequest();
+							var data = str;
+							alert(data);
+							http.open("POST", "inc/ueberzogen_helper.inc.php", false);
+							http.setRequestHeader(
+      							"Content-Type",
+    							"application/x-www-form-urlencoded");
+							http.send("ausleih_id='.$row->ausleih_id.'&verlaengert=1&bis=data");
+							var help;
+							help = http.responseText;
+							alert(help);
+    						if(help == 1){
+    							alertify.success("Die Ausleihe wurde erfolgreich verl&auml;ngert! Bitte Seite neu laden.");
+    						}
+    						else{
+    							alertify.error("Die Ausleihe konnte nicht verl&auml;ngert werden!");
+    						}
+   						} 
+   						else {
+   						 	alertify.error("Verl&auml;ngerung wurde vom Benutzer abgebrochen!");
+   					 	}
+					}, "'.$heute.'");\'>
+			
+			');
 		}
 	}
 	$tpl = clean_code("ueberzogen");

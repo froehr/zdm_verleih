@@ -18,8 +18,9 @@ div#navigation ul li{
 }
 
 div#navigation ul li ul {
-		padding: 15px;
+		padding: 0px;
 		display:none;
+		
 }
 
 div#navigation ul li:hover> ul {
@@ -34,6 +35,16 @@ div#navigation ul li ul li {
 		font-size: 0.7em;
 		box-shadow:1px 1px 5px #000;
 		min-width: 160px;
+		background-color: #aeaeae;
+		
+}
+
+div#navigation ul li ul li:hover {
+		display: inline-block;
+		background-color: #dddddd;
+		font-size: 0.7em;
+		box-shadow:1px 1px 5px #000;
+		min-width: 160px;
 }
 
 
@@ -45,19 +56,14 @@ div#navigation > ul{
 }
 
 div#navigation ul li {
-		background-color: #aeaeae; 
-		padding: 5px 15px; 
+		padding: 0px 15px 15px 5px; 
 		min-width:80px;
+		vertical-align:middle;
 }
 
 div#navigation a {
 		color:white;
 		text-decoration:none;
 		font-size: 1.5em;
+		text-shadow: 2px 2px 2px #888; 
 }
-
-div#navigation a:hover { 
-		color:#eef;
-		text-decoration: underline;
-}
-

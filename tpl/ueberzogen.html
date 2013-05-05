@@ -1,4 +1,10 @@
-<h3>Überzogenen Ausleihvorgänge</h3>
+<SCRIPT LANGUAGE=“JAVASCRIPT“>
+function error() {
+alertify.error("blablabla");
+}
+</SCRIPT>
+
+<h3>&Uuml;berzogenen Ausleihvorg&auml;nge</h3>
 	<table border>
 		<tr>
 			<th>
@@ -20,14 +26,17 @@
 				Matrikelnummer
 			</th>
 			<th>
-				Anzahl Verlängerung
+				Anzahl Verl&auml;ngerung
 			</th>
 			<th>
-				Bisherige Verspätungen
+				Bisherige Versp&auml;tungen
+			</th>
+			<th>
+				Aktionen
 			</th>
 		</tr>
 	{+ueberzogen}
-		<tr>
+		<tr height=30px>
 			<td>
 				{ausgeliehenbis1}
 			</td>
@@ -50,13 +59,16 @@
 				{anzahlverlaengerung1}
 			</td>
 			<td>
-				{bisherigeverspätungen1}
+				{bisherigeverspaetungen1}
+			</td>
+			<td>
+				{aktionen1}
 			</td>
 		</tr>
 	{-ueberzogen}
 	</table>
 	
-<h3>Ausleihvorgänge, die heute beendet werden müssen</h3>
+<h3>Ausleihvorg&auml;nge, die heute beendet werden m&uuml;ssen</h3>
 	<table border>
 		<tr>
 			<th>
@@ -75,10 +87,10 @@
 				Matrikelnummer
 			</th>
 			<th>
-				Anzahl Verlängerung
+				Anzahl Verl&auml;ngerung
 			</th>
 			<th>
-				Bisherige Verspätungen
+				Bisherige Versp&auml;tungen
 			</th>
 		</tr>
 	{+faellig}
@@ -102,13 +114,13 @@
 				{anzahlverlaengerung2}
 			</td>
 			<td>
-				{bisherigeverspätungen2}
+				{bisherigeversp&auml;tungen2}
 			</td>
 		</tr>
 	{-faellig}
 
 	</table>
-<h3>Ausleihvorgänge, die noch Zeit haben</h3>
+<h3>Ausleihvorg&auml;nge, die noch Zeit haben</h3>
 	<table border>
 		<tr>
 			<th>
@@ -127,10 +139,10 @@
 				Matrikelnummer
 			</th>
 			<th>
-				Anzahl Verlängerung
+				Anzahl Verl&auml;ngerung
 			</th>
 			<th>
-				Bisherige Verspätungen
+				Bisherige Versp&auml;tungen
 			</th>
 		</tr>
 	{+nochzeit}
@@ -154,7 +166,7 @@
 				{anzahlverlaengerung3}
 			</td>
 			<td>
-				{bisherigeverspätungen3}
+				{bisherigeversp&auml;tungen3}
 			</td>
 		</tr>
 	{-nochzeit}
