@@ -5,7 +5,7 @@ alertify.error("blablabla");
 </SCRIPT>
 
 <h3>&Uuml;berzogenen Ausleihvorg&auml;nge</h3>
-	<table border>
+	<table border width=95%>
 		<tr>
 			<th>
 				Ausgeliehen bis
@@ -17,19 +17,19 @@ alertify.error("blablabla");
 				Verliehen von
 			</th>
 			<th>
-				Mahngeb&uuml;hr
+				Geb&uuml;hr
 			</th>			
 			<th>
 				Emailadresse
 			</th>
 			<th>
-				Matrikelnummer
+				Matrikel
 			</th>
 			<th>
-				Anzahl Verl&auml;ngerung
+				Verl&auml;ngerung
 			</th>
 			<th>
-				Bisherige Versp&auml;tungen
+				 Versp&auml;tungen
 			</th>
 			<th>
 				Aktionen
@@ -69,7 +69,7 @@ alertify.error("blablabla");
 	</table>
 	
 <h3>Ausleihvorg&auml;nge, die heute beendet werden m&uuml;ssen</h3>
-	<table border>
+	<table border width=95%>
 		<tr>
 			<th>
 				Ausgeliehen bis
@@ -84,13 +84,16 @@ alertify.error("blablabla");
 				Emailadresse
 			</th>
 			<th>
-				Matrikelnummer
+				Matrikel
 			</th>
 			<th>
-				Anzahl Verl&auml;ngerung
+				Verl&auml;ngerung
 			</th>
 			<th>
-				Bisherige Versp&auml;tungen
+				 Versp&auml;tungen
+			</th>
+			<th>
+				Aktionen
 			</th>
 		</tr>
 	{+faellig}
@@ -114,14 +117,17 @@ alertify.error("blablabla");
 				{anzahlverlaengerung2}
 			</td>
 			<td>
-				{bisherigeversp&auml;tungen2}
+				{bisherigeverspaetungen2}
+			</td>
+			<td>
+				{aktionen2}
 			</td>
 		</tr>
 	{-faellig}
 
 	</table>
 <h3>Ausleihvorg&auml;nge, die noch Zeit haben</h3>
-	<table border>
+	<table border width=95%>
 		<tr>
 			<th>
 				Ausgeliehen bis
@@ -136,17 +142,20 @@ alertify.error("blablabla");
 				Emailadresse
 			</th>
 			<th>
-				Matrikelnummer
+				Matrikel
 			</th>
 			<th>
-				Anzahl Verl&auml;ngerung
+				Verl&auml;ngerung
 			</th>
 			<th>
-				Bisherige Versp&auml;tungen
+				 Versp&auml;tungen
+			</th>
+			<th>
+				Aktionen
 			</th>
 		</tr>
 	{+nochzeit}
-		<tr>
+		<tr height=30px>
 			<td>
 				{ausgeliehenbis3}
 			</td>
@@ -166,7 +175,10 @@ alertify.error("blablabla");
 				{anzahlverlaengerung3}
 			</td>
 			<td>
-				{bisherigeversp&auml;tungen3}
+				{bisherigeverspaetungen3}
+			</td>
+			<td>
+				{aktionen3}
 			</td>
 		</tr>
 	{-nochzeit}

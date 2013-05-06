@@ -24,9 +24,6 @@
 		case"neues_geraet":
 			include("inc/neues_geraet.inc.php");
 		break;
-		case"uebersicht_geraete":
-			include("inc/uebersicht_geraete.inc.php");
-		break;
 		case"ausleihe":
 			include("inc/ausleihe.inc.php");
 		break;

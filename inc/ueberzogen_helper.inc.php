@@ -20,16 +20,23 @@ if(mysql_affected_rows() == 1){
 
 if ( isset($_POST["verlaengert"]) ) {
 $ausleihe = $_POST["ausleih_id"];
+
 $bis = htmlentities(mysql_real_escape_string($_POST["bis"]));
+$bis = date("Y-m-d", strtotime($bis));
+
+
 query("UPDATE `ausleihe` SET `bis`='".$bis."',`verlaengert`=`verlaengert` + 1  WHERE `ausleih_id` ='".$ausleihe."'");
 
 if(mysql_affected_rows() == 1){
-	echo $bis;
+	echo 1;
 	}
 		
 	else{
-	echo $bis;
+	echo 0;
 	}
 }
+
+
+
 
 ?>

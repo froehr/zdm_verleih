@@ -14,9 +14,9 @@ $achtung='<script>
 	if (mysql_num_rows($query) != 0) {
 		while ($row = mysql_fetch_object($query)) {
 			$tpl = copy_code("verleiher");
- 			$name = $row->vorname;
-			if ($row->vorname != 0) {
-				$name .= $row->vorname;
+ 			$name = $row->verleiher_vorname;
+			if ($row->verleiher_vorname != 0) {
+				$name .= $row->verleiher_vorname;
 			}
 			$replace = $row->verleiher_vorname." ".$row->verleiher_name." ".$row->verleiher_id;
 			$tpl = tpl_replace_once("verleiher_name", $replace);
