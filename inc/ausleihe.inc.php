@@ -97,8 +97,8 @@ else if (isset($_POST["matrikel2"])){
 	if (mysql_num_rows($query) != 0) {
 		while ($row = mysql_fetch_object($query)) {
 			$tpl = copy_code("verleiher");
- 			$name = $row->vorname;
-			if ($row->vorname != 0) {
+ 			$name = $row->verleiher_vorname;
+			if ($row->verleiher_vorname != 0) {
 				$name .= " ".$row->verleiher_vorname;
 			}
 			$tpl = tpl_replace_once("verleiher_name", $row->verleiher_vorname);

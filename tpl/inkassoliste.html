@@ -1,0 +1,126 @@
+<h3> Inkassoliste - aktuell</h3>
+
+<table border width=95% >
+	<tr>
+		<th>
+			Datum
+		</th>
+		<th>
+			Kennung
+		</th>
+		<th>
+			Betrag
+		</th>
+		<th>
+			Posten
+		</th>
+		<th>
+			Pfand
+		</th>
+		<th>
+			eingetragen von
+		</th>
+		<th>
+			Mahnungen
+		</th>
+		<th>
+			Aktionen
+		</th>
+	</tr>
+<form action="#" method="post">
+	<tr height=30px>
+		<td>
+			 <input name="datum" type="text" id="anfangsdatum" required value="{anfangsdatum}">
+		</td>
+		<td>
+			 <input name="kennung" type="text" size="30" maxlength="40" required>
+		</td>
+		<td>
+			 <input name="betrag" type="text" size="30" maxlength="40" required>
+		</td>
+		<td>
+			 <input name="posten" type="text" size="30" maxlength="40" >
+		</td>
+		<td>
+			 <input name="pfand" type="text" size="30" maxlength="40" >
+		</td>
+		<td>
+			 <input name="eingetragenvon" type="text" size="30" maxlength="40" >
+		</td>
+		<td>
+			 <input name="mahnung" type="text" size="30" maxlength="40" >
+		</td>
+		<td>
+			 <input name="senden" type="submit" size="30" maxlength="40">
+			 {antwort}
+		</td>
+	</tr>
+</form>
+	<tr>
+		<th colspan=8>
+			Nicht bezahlt: 
+		</th>
+	</tr>
+{+nichtbezahlt}
+	<tr height=30px>
+		<td>
+			{datum1}
+		</td>
+		<td>
+			{kennung1}
+		</td>
+		<td>
+			{betrag1}
+		</td>
+		<td>
+			{posten1}
+		</td>
+		<td>
+			{pfand1}
+		</td>
+		<td>
+			{eingetragenvon1}
+		</td>
+		<td>
+			{mahnungen1}
+		</td>
+		<td>
+			{aktion1}
+		</td>
+	</tr>
+{-nichtbezahlt}
+	<tr>
+		<th colspan=8>
+			Bereits bezahlt: 
+		</th>
+{+bezahlt}
+	</tr>
+	<tr height=30px>
+		<td>
+			{datum2}
+		</td>
+		<td>
+			{kennung2}
+		</td>
+		<td>
+			{betrag2}
+		</td>
+		<td>
+			{posten2}
+		</td>
+		<td>
+			{pfand2}
+		</td>
+		<td>
+			{eingetragenvon2}
+		</td>
+		<td>
+			{mahnungen2}
+		</td>
+		<td>
+			{aktion2}
+		</td>
+	</tr>
+{-bezahlt}
+	
+</table>
