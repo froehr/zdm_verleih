@@ -81,6 +81,35 @@ if (mysql_num_rows($nichtbezahlt) != 0) {
 			$tpl = tpl_replace_once("pfand1", $row->pfand);
 			$tpl = tpl_replace_once("eingetragenvon1", $row->eingetragenvon);
 			$tpl = tpl_replace_once("mahnungen1", $row->mahnungen);
+			$tpl = tpl_replace_once("aktion1", '<img src="img/bezahlt.png" alt="rueckgabe" onClick=
+			
+			\'alertify.confirm("Als bezahlt markieren?",function (e){
+						if(e){
+							var http = new XMLHttpRequest();
+							http.open("POST", "inc/inkassoliste_helper.inc.php", false);
+							http.setRequestHeader(
+      							"Content-Type",
+    							"application/x-www-form-urlencoded");
+							http.send("inkasso_id='.$row->inkasso_id.'&rueckgabe=1");
+							var help;
+							help = http.responseText;
+    						if(help == 1){
+    							alertify.success("Als bezahlt markiert!");
+    						}
+    						else{
+    							alertify.error("Konnte nicht als bezahlt markiert werden!");
+    						}
+   						} 
+   						else {
+   						 	alertify.error("Bezahlen wurde vom Benutzer abgebrochen!");
+   					 	}
+					});\'>
+			
+					<a href="mailto:'.$row->nutzerkennung.'@uni-muenster.de?cc=zdm@uni-muenster.de&bcc=&subject=&Uuml;berzogene Ausleihe&body=Hallo,%0D%0D
+						du hast heute im ZDM deine Drucksachen nicht bezahlt. Begleiche deinen R&uuml;ckstand 
+						bitte m&ouml;glichst schnell.%0D%0D Solltest du kein Pfand hinterlegt haben, werden 0,50&euro; Mahngeb&uuml;hr f&auml;llig!%0DZu zahlen dann mit Mensakarte.  %0D%0DGru&szlig;, %0D ZDM 
+						Geowissenschaften"><img src="img/email.png" alt="mahnung"></a>
+					');
 			
 		}
 	}
