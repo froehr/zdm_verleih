@@ -25,76 +25,31 @@
 	</head>
 	
 	<body>
-	
-<div id="navigation">
-	<ul>
-		<li><img src="img/Logo_ZDM_Verleih_klein.png" alt="Logo_ZDM_Verleih_klein"></li>
-  		<li><a href="#">Home</a></li> 
- 		<li><a href="#">Verleih</a> 
-    		<ul>
-    			<li><a href="?page=ausleihe">Ausleihe</a></li> 
-      			<li><a href="#">Reservierung</a></li>
-      			<li><a href="#">R&uuml;ckgabe</a></li>  
-   			</ul>
-   		</li>
-   		<li><a href="#">Ausleihvorg&auml;nge</a> 
-   			<ul>
-   				<li><a href="?page=ueberzogen">Verleih&uuml;bersicht</a></li> 
-      			<li><a href="?page=historisch">Historisches</a></li>
-      			<li><a href="?page=geraete_uebersicht">Ger&auml;te&uuml;bersicht</a></li>
-      		</ul>
-      	</li>
-  		<li><a href="#">Administration</a>
-			<ul> 
-				<li><a href="?page=verleiher_anlegen">Verleiher anlegen</a></li> 
-				<li><a href="?page=verleiher_loeschen">Verleiher l&ouml;schen</a></li> 
-			  	<li><a href="?page=neues_geraet">Neues Ger&auml;t</a></li>
-			  	<li><a href="?page=geraet_aendern">Ger&auml;t &auml;ndern</a></li> 
-			</ul>
-		</li>
-      	<li><a href="#">Sonstiges</a>
-      		<ul> 
-				<li><a href="#">Dozentenleistungen</a></li> 
-				<li><a href="?page=inkassoliste">Inkassoliste</a></li> 
-			</ul> 
-    	</li> 
-  	</ul>
-</div>	
-  	
-  	
-		<div id="header">
+		<header>
+			<img src="img/Logo_ZDM_Verleih_klein.png" alt="ZDM Verleih">
 			<nav>
-				<ul>
-					<li>
-						<b>Ausleihvorgänge</b>
-						<ul style="list-style-type:circle;">
-							<li>&Uuml;bersicht aktuelle Ausleihe</li>
-							<li>History</li>
-						</ul>
-					</li>
-
-					<li>Allgemeine Ger&auml;te&uuml;bersicht</li>
-					
-					<li>
-						<b>Aktionen</b>
-						<ul style="list-style-type:circle;">
-							<li>Neue Ausleihe (Fabian)</li>
-							<li>R&uuml;ckgabe</li>
-							<li>Reservierung</li>
-						</ul>
-					</li>
-					
-					<li>
-						<b>Administration</b>
-						<ul style="list-style-type:circle;">
-							<li>Neues Ger&auml;t eintragen (Anja - done)</li>
-							<li>Ger&auml;t &auml;ndern</li>
-							<li>Neuen Verleiher anlegen (Fabian - done)</li>
-							<li>Neuen Verleiher lšschen (Fabian - done)</li>
-						</ul>
-					</li>
-				</ul>
+				<div class="nav_menue"><span class="nav_top"><a href="?">Home</a></span></div>
+				<div class="nav_menue"><span class="nav_top">Verleih</span>
+					<a href="?page=ausleihe" class="nav_link">Ausleihe</a>
+					<a href="#" class="nav_link">Reservierung</a>
+					<a href="#" class="nav_link">R&uuml;ckgabe</a>
+				</div>
+				<div class="nav_menue"><span class="nav_top">Ausleihvorg&auml;nge</span>
+					<a href="?page=ueberzogen" class="nav_link">Verleih&uuml;bersicht</a>
+					<a href="?page=historisch" class="nav_link">Historisches</a>
+					<a href="?page=geraete_uebersicht" class="nav_link">Ger&auml;te&uuml;bersicht</a></div>
+				<div class="nav_menue"><span class="nav_top">Administration</span>
+					<a href="?page=verleiher_anlegen" class="nav_link">neuer Verleiher</a>
+					<a href="?page=verleiher_loeschen" class="nav_link">Verleiher l&ouml;schen</a>
+					<a href="?page=neues_geraet" class="nav_link">Neues Ger&auml;t</a>
+					<a href="?page=geraet_aendern" class="nav_link">Ger&auml;t &auml;ndern</a></div>
+				<div class="nav_menue"><span class="nav_top">Sonstiges</span>
+					<a href="?page=dozentenleistung" class="nav_link">Dozentenleistungen</a>
+					<a href="?page=inkassoliste" class="nav_link">Inkassoliste</a></div>
 			</nav>
+		</header>
+		
+		<div id="container">
 			{content}
 		</div>
 	</body>
