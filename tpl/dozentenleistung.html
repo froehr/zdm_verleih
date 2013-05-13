@@ -30,10 +30,17 @@
             <input name="leistung" type="text" required>
         </td>
         <td>
-             <input name="dozent" type="text" required>
+            <select name="dropdown">
+                {+option}
+                    <option>
+                        {dozentoption}
+                    </option>
+                {-option}
+            </select>
+             
         </td>
         <td>
-            <input name="senden" type="submit">
+            <input name="senden" type="submit" class="button">
         </td>
     </tr>
 </form>
