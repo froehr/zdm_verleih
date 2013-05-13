@@ -1,0 +1,53 @@
+<h3>Dozentenleitungen</h3>
+<table border id="dozentenleistung" width="95%">
+    <tr>
+        <th class="dozententh">
+            Datum
+        </th>
+        <th>
+            Name
+        </th>
+        <th>
+            Leistung
+        </th>
+        <th>
+            Dozent
+        </th>
+        <th>
+            Aktion
+        </th>
+    </tr>
+
+<form method="post" action="#"> 
+     <tr>
+        <td>
+            <input name="datum" type="text" id="anfangsdatum" required value="{anfangsdatum}">
+        </td>
+        <td>
+            <input name="name" type="text" required>
+        </td>
+        <td>
+            <input name="leistung" type="text" required>
+        </td>
+        <td>
+             <input name="dozent" type="text" required>
+        </td>
+        <td>
+            <input name="senden" type="submit">
+        </td>
+    </tr>
+</form>
+    <tr>
+        <th colspan ="5" align="center">
+            Eingetragene Leistungen:
+        </th>
+    </tr>
+    
+    {+dozent}
+    <tr>
+        <th class="dozententh">
+            {dozentname}
+        </th>
+    </tr>
+    {-dozent}
+</table>
