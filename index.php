@@ -44,8 +44,10 @@
 		break;
 		case"geraete_uebersicht":
 			include("inc/geraete_uebersicht.inc.php");
+		break;
 		case"inkassoliste":
 			include("inc/inkassoliste.inc.php");
+		break;
 	}
 	
 	// remove special characters

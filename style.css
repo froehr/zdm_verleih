@@ -1,5 +1,5 @@
-body { 
-	font-family: sans-serif;
+html, body { 
+	font: 11pt Calibri,Arial,sans-serif;
 	background-color: #e0e0e0;
 	margin:0px;
 	padding: 0px;
@@ -83,24 +83,55 @@ header nav .nav_menue a.nav_link:hover {
 }
 
 #container {
-	position:relative;
-	width:100%;
-	padding-top: 40px;
+		position:relative;
+		width:100%;
+		padding-top: 40px;
+}
+
+#container h3 {
+		display:block;
+		width:95%;
+		border-bottom: 1px solid rgba(136, 0, 0, 0.1);
+		font-size:14pt;
+		margin: 15px auto 20px;
+}
+
+#container a:link, #container a:link {
+		color: #000;
+		text-decoration:none;
+}
+
+#container a:active, #container a:hover {
+		color: #B00;
+		text-decoration:none;
 }
 
 #container table {
-	width:95%;
-	border-collapse:collapse;
-	margin: 0px auto;
+		width:95%;
+		border-collapse:collapse;
+		margin: 0px auto;
 }
 
 #container table th, #container table td {
-	height:30px;
-	vertical-align:middle;
-	padding:3px;
+		height:30px;
+		vertical-align:middle;
+		padding:3px;
+}
+
+#container table th  {
+		color: #800;
 }
 
 #container table .dozententh  {
-	width:220px;
-	text-align:left;
+		width:220px;
+		text-align:left;
+}
+
+#container input {
+		max-width:150px;
+}
+
+#container textarea {
+		max-width:150px;
+		resize:vertical;
 }
