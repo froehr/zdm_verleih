@@ -48,8 +48,10 @@
 		case"inkassoliste":
 			include("inc/inkassoliste.inc.php");
 		break;
+		case"dozentenleistung":
+			include("inc/dozentenleistung.inc.php");
+		break;
 	}
-	
 	// remove special characters
 	$tpl = str_replace(array("Ä","Ö","Ü","ä","ö","ü","ß"), array("&Auml;","&Ouml;","&Uuml;","&auml;","&ouml;","&uuml;","&szlig;"), $tpl);
 	
