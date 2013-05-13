@@ -85,7 +85,7 @@ header nav .nav_menue a.nav_link:hover {
 #container {
 		position:relative;
 		width:100%;
-		padding-top: 40px;
+		padding: 40px 0px 20px;
 }
 
 #container h3 {
@@ -128,10 +128,42 @@ header nav .nav_menue a.nav_link:hover {
 }
 
 #container input {
-		max-width:150px;
+		width:150px;
+		background-color:rgba(255,255,255,0.5);
+		-moz-box-shadow: inset 0px 0px 5px 3px #fff;
+		-webkit-box-shadow: inset 0px 0px 5px 3px #fff;
+		box-shadow: inset 0px 0px 5px 3px #fff;
+		border:1px solid #ccc;
+		font-size:9pt;
+}
+
+#container select {
+		width:150px;
+		background-color:#EFEFEF;
+		-moz-box-shadow: inset 0px 0px 5px 3px #fff;
+		-webkit-box-shadow: inset 0px 0px 5px 3px #fff;
+		box-shadow: inset 0px 0px 5px 3px #fff;
+		border:1px solid #ccc;
+		font-size:9pt;
 }
 
 #container textarea {
-		max-width:150px;
+		width:150px;
 		resize:vertical;
+		background-color:rgba(255,255,255,0.5);
+		-moz-box-shadow: inset 0px 0px 5px 3px #fff;
+		-webkit-box-shadow: inset 0px 0px 5px 3px #fff;
+		box-shadow: inset 0px 0px 5px 3px #fff;
+		border:1px solid #ccc;
+		font-size:9pt;
+}
+
+#container input.button {
+		min-width:100px;
+		width:auto;
+		background-color:rgba(0,0,0,0.1);
+		-moz-box-shadow: 0px 0px 0px #fff;
+		-webkit-box-shadow: inset 0px 0px 0px #fff;
+		box-shadow: 0px 0px 0px #fff;
+		border: 1px outset #ccc;
 }

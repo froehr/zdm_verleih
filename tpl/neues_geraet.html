@@ -2,8 +2,8 @@
 <form method="POST" action="#">
 	<table style="width:400px;" cellpadding="0" cellspacing="5">
 		<tr>
-			<td width="50%">
-				<b>Name und Nummer</b>
+			<th width="50%">
+				Name und Nummer
 			</td>
 			<td width="50%">
 				<input type="text" name="geraet_name" required>
@@ -11,17 +11,17 @@
 			</td>
 		</tr>
 		<tr>
-			<td width="50%">
+			<th width="50%" style="vertical-align:top;">
 				<b>Zubehör</b><br>
-				<i>bitte jedes Teil in eine neue Zeile!</i>
-			</td>
+				<span style="font-weight:normal;font-style:italic;">bitte jedes Teil in eine neue Zeile!</span>
+			</th>
 			<td width="50%">
 				<textarea name="geraet_zubehoer" cols="20" rows="10"></textarea>
 			</td>
 		</tr>
 		<tr>
 			<td colspan="2">
-				<input type="submit" value="Eintragen"> <input type="reset" value="leeren">
+				<input type="submit" value="Eintragen" class="button"> <input type="reset" value="leeren" class="button">
 			</td>
 		</tr>
 	</table>
