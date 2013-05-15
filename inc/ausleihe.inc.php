@@ -23,8 +23,7 @@ $matrikel2="";
 $matrikelform3="";
 
 
-//Dropdown für den Verleiher füllen
-	$query = query("SELECT verleiher_vorname FROM `verleiher` ORDER BY `verleiher_vorname`");
+//Dropdown für den Verleiher füllen	$query = query("SELECT verleiher_vorname FROM `verleiher` ORDER BY `verleiher_vorname`");
 	if (mysql_num_rows($query) != 0) {
 		while ($row = mysql_fetch_object($query)) {
 			$tpl = copy_code("verleiher");

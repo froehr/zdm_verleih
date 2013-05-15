@@ -33,7 +33,7 @@ header nav {
 		text-align: left;
 		vertical-align: middle;
 		position: absolute;
-		width:100%;
+		
 }
 
 header nav .nav_menue {
@@ -166,4 +166,12 @@ header nav .nav_menue a.nav_link:hover {
 		-webkit-box-shadow: inset 0px 0px 0px #fff;
 		box-shadow: 0px 0px 0px #fff;
 		border: 1px outset #ccc;
+}
+#container table tr td .dozentdetail {
+		//visibility: hidden;
+		position: absolute;
+		left: 0px;
+		top:0px;
+		width:100%;
+		background-color: #e0e0e0;
 }

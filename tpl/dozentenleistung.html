@@ -1,11 +1,14 @@
 <h3>Dozentenleitungen</h3>
 <table border id="dozentenleistung" width="95%">
     <tr>
-        <th class="dozententh">
+        <th>
             Datum
         </th>
         <th>
             Name
+        </th>
+        <th>
+            Betrag
         </th>
         <th>
             Leistung
@@ -20,17 +23,36 @@
 
 <form method="post" action="#"> 
      <tr>
-        <td>
+        <td align="center">
             <input name="datum" type="text" id="anfangsdatum" required value="{anfangsdatum}">
         </td>
-        <td>
-            <input name="name" type="text" required>
+        <td align="center">
+            <input name="name" type="text" required autofocus>
         </td>
-        <td>
-            <input name="leistung" type="text" required>
+        <td align="center">
+            <input name="betrag" type="text" required> &euro;
         </td>
-        <td>
-            <select name="dropdown">
+        <td align="center">
+            <select name="leistung" required>
+                <option>
+                    
+                </option>
+                <option>
+                    Drucke
+                </option>
+                <option>
+                    Laminierung
+                </option>
+                <option>
+                    Sontiges
+                </option>
+            </select>
+        </td>
+        <td align="center">
+            <select name="dropdown" required>
+                    <option>
+                        
+                    </option>
                 {+option}
                     <option>
                         {dozentoption}
@@ -39,13 +61,13 @@
             </select>
              
         </td>
-        <td>
+        <td align="center">
             <input name="senden" type="submit" class="button">
         </td>
     </tr>
 </form>
     <tr>
-        <th colspan ="5" align="center">
+        <th colspan ="6" align="center">
             Eingetragene Leistungen:
         </th>
     </tr>
@@ -55,6 +77,48 @@
         <th class="dozententh">
             {dozentname}
         </th>
+        <td>
+            {gesamtbetrag} &euro;
+        </td>
+        <td>
+            <a onclick="">Detailansicht</a>
+        </td>
+        <td style="position:relative" colspan="3" border="0">
+            <div class="dozentdetail" id="{dozenten_id}">
+                <table border="1" style="width: 100%">
+                    <tr>
+                        <td>
+                            Datum
+                        </td>
+                         <td>
+                            Kennung
+                        </td>
+                        <td>
+                            Leistung
+                        </td>
+                        <td>
+                            Betrag
+                        </td>
+                    </tr>
+                {+details1}
+                    <tr>
+                        <td>
+                            {datum1}
+                        </td>
+                         <td>
+                            {kennung1}
+                        </td>
+                        <td>
+                            {leistung1}
+                        </td>
+                        <td>
+                            {betrag1}
+                        </td>
+                    </tr>
+                {-details1}    
+                </table>
+            </div>
+        </td>
     </tr>
     {-dozent}
 </table>
