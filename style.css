@@ -118,7 +118,7 @@ header nav .nav_menue a.nav_link:hover {
 		padding:3px;
 }
 
-#container table th  {
+#container table th {
 		color: #800;
 }
 
@@ -168,7 +168,7 @@ header nav .nav_menue a.nav_link:hover {
 		border: 1px outset #ccc;
 }
 #container table tr td .dozentdetail {
-		//visibility: hidden;
+		visibility: hidden;
 		position: absolute;
 		left: 0px;
 		top:0px;

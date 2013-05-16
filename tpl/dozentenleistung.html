@@ -80,42 +80,27 @@
         <td>
             {gesamtbetrag} &euro;
         </td>
-        <td>
-            <a onclick="">Detailansicht</a>
+        <td href="#" onclick='document.getElementById("{dozent_id}").style.visibility = "visible";'>
+            Klick f&uuml;r Detailansicht
         </td>
         <td style="position:relative" colspan="3" border="0">
-            <div class="dozentdetail" id="{dozenten_id}">
+            <div class="dozentdetail" id="{dozent_id}">
                 <table border="1" style="width: 100%">
-                    <tr>
-                        <td>
+                    <tr href="#" onclick='document.getElementById("{dozent_id}").style.visibility = "hidden";'>
+                        <th>
                             Datum
-                        </td>
-                         <td>
+                        </th>
+                         <th>
                             Kennung
-                        </td>
-                        <td>
+                        </th>
+                        <th>
                             Leistung
-                        </td>
-                        <td>
+                        </th>
+                        <th>
                             Betrag
-                        </td>
+                        </th>
                     </tr>
-                {+details1}
-                    <tr>
-                        <td>
-                            {datum1}
-                        </td>
-                         <td>
-                            {kennung1}
-                        </td>
-                        <td>
-                            {leistung1}
-                        </td>
-                        <td>
-                            {betrag1}
-                        </td>
-                    </tr>
-                {-details1}    
+                {details1}
                 </table>
             </div>
         </td>

@@ -23,6 +23,8 @@ if(isset($_POST["datum"])){
 		
 		$number = query("SELECT * FROM `dozent` WHERE `dozent_name` = '".$dropdown."' ");
 		
+		$datum = date("Y-m-d", strtotime($datum));
+		
 		if (mysql_num_rows($number) != 0) {
 		$row1 = mysql_fetch_object($number);
 		
@@ -47,29 +49,43 @@ if (mysql_num_rows($aktuell) != 0) {
 				$tpl = copy_code("dozent");
 				$tpl = tpl_replace_once("dozentname", $row->dozent_name);
 				$tpl = tpl_replace_once("gesamtbetrag", $betrag);
+				$tpl = tpl_replace_once("dozent_id", $row->dozent_id);
+				$tpl = tpl_replace_once("dozent_id", $row->dozent_id);
+				$tpl = tpl_replace_once("dozent_id", $row->dozent_id);
 				
-				echo "es lebt";
 				$detail = query("SELECT * FROM `dozentenleistungen` WHERE `dozent_id` = '".$row->dozent_id."'");
 				
-				
+				$details = "";
 				
 				if (mysql_num_rows($detail) != 0) {
 						while ($row2 = mysql_fetch_object($detail)) {
-							echo $row2->betrag."</br>";
-							$tpl = copy_code("details1");
+								
+						$details .= "<tr>
+								<td>
+								    ".date("d.m.Y", strtotime($row2->datum))."
+								</td>
+								 <td>
+								    ".$row2->benutzername."
+								</td>
+								<td>
+								    ".$row2->leistung."
+								</td>
+								<td>
+								    ".str_replace(".", ",", $row2->betrag)." &euro;
+								</td>
+						            </tr>";
 							
-							$tpl = tpl_replace_once("datum1", $row2->datum);
-							$tpl = tpl_replace_once("kennung1", $row2->benutzername);
-							$tpl = tpl_replace_once("leistung1", $row2->leistung);
-							$tpl = tpl_replace_once("betrag1", $row2->betrag);
+							
+							
 						}
 				}
+				$tpl = tpl_replace_once("details1", $details);
+				$details = "";
 		}
 }
-
 		$tpl = clean_code("dozent");
 		$tpl = clean_code("option");
-		$tpl = clean_code("details1")
+		
 
 
 ?>
