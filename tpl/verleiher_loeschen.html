@@ -1,20 +1,31 @@
 <h3>Verleiher l&ouml;schen:</h3>
 
-<p>Welchen Verleiher m&ouml;chten Sie aus der Datenbank l&ouml;schen?</br>
+
 {achtung}
 {abfrage}
 
 <form action="#" method="post">
-
-	<select name="verleiher_drop">
-	{+verleiher}
-		<option>
-			{verleiher_name}
-		</option>
-	{-verleiher}
-	</select>
-	
-	<input type="submit" name="senden" value="Verleiher aus der Datenbank entfernen">
-			
+<table>
+	<tr>
+		<th>
+			Welchen Verleiher m&ouml;chten Sie aus der Datenbank l&ouml;schen?
+		</th>
+	</tr>
+	<tr>
+		<td>
+			<select name="verleiher_drop">
+				{+verleiher}
+					<option>
+						{verleiher_name}
+					</option>
+				{-verleiher}
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<input type="submit" name="senden" value="Verleiher aus der Datenbank entfernen" class="button">
+		</td>
+	</tr>	
 </form>
 {nachricht}

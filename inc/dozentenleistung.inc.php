@@ -48,7 +48,7 @@ if (mysql_num_rows($aktuell) != 0) {
 		
 				$tpl = copy_code("dozent");
 				$tpl = tpl_replace_once("dozentname", $row->dozent_name);
-				$tpl = tpl_replace_once("gesamtbetrag", $betrag);
+				$tpl = tpl_replace_once("gesamtbetrag", str_replace(".", ",", $betrag));
 				$tpl = tpl_replace_once("dozent_id", $row->dozent_id);
 				$tpl = tpl_replace_once("dozent_id", $row->dozent_id);
 				$tpl = tpl_replace_once("dozent_id", $row->dozent_id);
