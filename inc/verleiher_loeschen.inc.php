@@ -31,7 +31,7 @@ if ((isset($_POST["verleiher_drop"]))){
 	$verleiher_id = end($array);	
 	
 	$abfrage = '<script type="text/javascript">	
-					alertify.confirm("Soll der Verleiher wirklich gelöscht werden?",function (e){
+					alertify.confirm("Soll der Verleiher wirklich gel&ouml;scht werden?",function (e){
 						if(e){
 							var http = new XMLHttpRequest();
 							http.open("POST", "inc/verleiher_loeschen_helper.inc.php", false);

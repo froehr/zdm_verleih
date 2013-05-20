@@ -89,7 +89,6 @@ if (mysql_num_rows($ueberzogen) != 0) {
 							http.send("ausleih_id='.$row->ausleih_id.'&verlaengert=1&bis=" + data);
 							var help;
 							help = http.responseText;
-							alert(help);
     						if(help == 1){
     							alertify.success("Die Ausleihe wurde erfolgreich verl&auml;ngert! Bitte Seite neu laden.");
     						}
