@@ -45,6 +45,9 @@
 		case"geraete_uebersicht":
 			include("inc/geraete_uebersicht.inc.php");
 		break;
+		case"geraet_aendern":
+			include("inc/geraet_aendern.inc.php");
+		break;
 		case"inkassoliste":
 			include("inc/inkassoliste.inc.php");
 		break;
