@@ -1,0 +1,6 @@
+<?php
+$conf["db"]["sqlhost"] = "localhost";
+$conf["db"]["sqluser"] = "root";
+$conf["db"]["sqldb"] = "zdm_verleih";
+$conf["db"]["sqlpassword"] = "root";
+?>
