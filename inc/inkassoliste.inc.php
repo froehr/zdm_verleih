@@ -106,8 +106,8 @@ if (mysql_num_rows($nichtbezahlt) != 0) {
 					});\'>
 			
 					<a href="mailto:'.$row->nutzerkennung.'@uni-muenster.de?cc=zdm@uni-muenster.de&bcc=&subject=&Uuml;berzogene Ausleihe&body=Hallo,%0D%0D
-						du hast heute im ZDM deine Drucksachen nicht bezahlt. Begleiche deinen R&uuml;ckstand 
-						bitte m&ouml;glichst schnell.%0D%0D Solltest du kein Pfand hinterlegt haben, werden 0,50&euro; Mahngeb&uuml;hr f&auml;llig!%0DZu zahlen dann mit Mensakarte.  %0D%0DGru&szlig;, %0D ZDM 
+						du hast heute im ZDM deine '.$row->posten.' nicht bezahlt ('.$row->betrag.'&euro;). Begleiche deinen R&uuml;ckstand 
+						bitte m&ouml;glichst schnell.%0D%0DSolltest du kein Pfand hinterlegt haben, werden 0.50&euro; Mahngeb&uuml;hr f&auml;llig!%0DZu zahlen dann mit Mensakarte.  %0D%0DGru&szlig;, %0D ZDM 
 						Geowissenschaften"><img src="img/email.png" alt="mahnung"></a>
 					');
 			

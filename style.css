@@ -120,6 +120,7 @@ header nav .nav_menue a.nav_link:hover {
 
 #container table th {
 		color: #800;
+		border-color: #000;
 }
 
 #container table .dozententh  {
@@ -168,8 +169,7 @@ header nav .nav_menue a.nav_link:hover {
 		border: 1px outset #ccc;
 }
 #container table tr td .dozentdetail {
-		visibility: hidden;
-		position: absolute;
+		display: none;
 		left: 0px;
 		top:0px;
 		width:100%;

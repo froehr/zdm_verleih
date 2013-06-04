@@ -74,19 +74,19 @@
     
     {+dozent}
     <tr>
-        <th class="dozententh">
+        <th class="dozententh" valign="baseline">
             {dozentname}
         </th>
-        <td>
+        <td valign="top">
             {gesamtbetrag} &euro;
         </td>
-        <td href="#" onclick='document.getElementById("{dozent_id}").style.visibility = "visible";'>
+        <td href="#" onclick='document.getElementById("{dozent_id}").style.display = "block";' valign="top">
             Klick f&uuml;r Detailansicht
         </td>
         <td style="position:relative" colspan="3" border="0">
             <div class="dozentdetail" id="{dozent_id}">
                 <table border="1" style="width: 100%">
-                    <tr href="#" onclick='document.getElementById("{dozent_id}").style.visibility = "hidden";'>
+                    <tr href="#" onclick='document.getElementById("{dozent_id}").style.display = "none";'>
                         <th>
                             Datum
                         </th>

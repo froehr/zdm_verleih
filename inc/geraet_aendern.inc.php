@@ -3,7 +3,7 @@
 	$successmessage = "";
 	if ( isset($_GET["geraet"]) ) {
 		$geraet_objekt_id = intval($_GET["geraet"]);
-		if ( isset($_POST[""]
+		if ( isset($_POST[""])){
 		$name = htmlentities(mysql_real_escape_string($_POST["geraet_name"]));
 		$nummer = intval($_POST["geraet_nummer"]);
 		if ( mysql_num_rows(query("SELECT `name` FROM `ausleihobjekt` WHERE `geraet_typ`='".$name."' AND `geraet_typ_id`=".$nummer)) != 0 ) {
@@ -29,6 +29,7 @@
 			query("UPDATE `ausleihobjekt` SET `zubehoer`='".$zubehoer_objekt."' WHERE `objekt_id`=".$objekt_id);
 			$successmessage .= "<br>Eintrag erfolgreich abgeschlossen";
 		}
+	}
 	}
 	$tpl = tpl_replace("errormessage", $errormessage);
 	$tpl = tpl_replace("successmessage", $successmessage);
